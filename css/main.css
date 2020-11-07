@@ -164,7 +164,7 @@ p.lead {
 	}
 }
 em, i, strong, b {
-	font-size: 1.7rem;
+	/* font-size: 1.7rem; */
 	line-height: 3rem;
 	font-style: normal;
 	font-weight: normal;
@@ -1096,7 +1096,7 @@ header .row {
 header .top-bar {
 	display: block;
 	background: #000000;
-	min-width: 220px;
+	min-width: 155px;
 	min-height: 66px;
 	position: absolute;
 	left: 90px;
@@ -1104,9 +1104,8 @@ header .top-bar {
 }
 header .logo {
 	float: left;
-	margin-left: 20px;
-	margin-right: 50px;
-	margin-top: 25px;
+	padding-left: 5px;
+	margin: 15px 20px 15px 15px; 
 	position: relative;
 }
 header .logo a {
@@ -1117,10 +1116,9 @@ header .logo a {
 	font: 0/0 a;
 	text-shadow: none;
 	color: transparent;
-	width: 92px;
-	height: 15px;
+	width: 40px;
+	height: 40px;
 	background: url("../images/logo.png") no-repeat center;
-	background-size: 92px 15px;
 }
 
 /**
@@ -1230,7 +1228,7 @@ header .logo a {
 /* dropdown nav */
 .main-navigation {
 	background: #000000;
-	padding: 24px 30px 42px;
+	padding: 0 30px 24px;
 	margin: 0;
 	width: 100%;
 	height: auto;
@@ -1350,6 +1348,7 @@ header .logo a {
 	font-family: "lora-regular", serif;
 	font-size: 1.7rem;
 	line-height: 2.4rem;
+	padding-top: 2rem;
 	text-transform: uppercase;
 	letter-spacing: .2rem;
 	color: #FFFFFF;
@@ -1491,8 +1490,8 @@ header .logo a {
  */
 #about {
 	background: #FFFFFF;
-	padding-top: 12rem;
-	padding-bottom: 15rem;
+	padding-top: 10rem;
+	padding-bottom: 5rem;
 }
 #about .section-intro {
 	margin-bottom: 3rem;
@@ -1500,19 +1499,19 @@ header .logo a {
 
 .intro-info {
 	margin-top: 4.2rem;
-	margin-right: -30px;
-	margin-left: -30px;
+	margin-right: -70px;
+	margin-left: -70px;
 }
 .intro-info img {
-	height: 9rem;
-	width: 9rem;
+	height: 20rem;
+	width: 20rem;
 	border-radius: 50%;
-	margin: .9rem 0 0 0;
+	margin: 2rem;
 	float: left;
 }
 .intro-info .lead {
 	text-align: left;
-	padding-left: 13rem;
+	padding-left: 30rem;
 }
 
 .about-content {
@@ -1622,7 +1621,7 @@ header .logo a {
  */
 #resume {
 	padding-top: 12rem;
-	padding-bottom: 12rem;
+	padding-bottom: 8rem;
 }
 
 #resume .resume-header {
@@ -1652,7 +1651,7 @@ header .logo a {
 }
 #resume .timeline-block {
 	position: relative;
-	padding-top: 1.5rem;
+	/* padding-top: 1.5rem; */
 }
 #resume .timeline-ico {
 	height: 4.8rem;
@@ -1676,7 +1675,7 @@ header .logo a {
 #resume .timeline-header {
 	float: left;
 	width: 35%;
-	padding-right: 90px;
+	padding-right: 50px;
 	text-align: right;
 }
 #resume .timeline-header h3 {
@@ -2099,8 +2098,8 @@ header .logo a {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
-	padding-top: 12rem;
-	padding-bottom: 12rem;
+	padding-top: 20rem;
+	padding-bottom: 15rem;
 	color: white;
 	position: relative;
 }
@@ -2251,8 +2250,8 @@ header .logo a {
  */
 #contact {
 	background: #151515;
-	padding-top: 12rem;
-	padding-bottom: 7.2rem;
+	padding-top: 20rem;
+	padding-bottom: 12rem;
 }
 #contact .section-intro h1 {
 	color: white;
@@ -2596,4 +2595,27 @@ footer .copyright span:last-child::after {
 	background: #000000;
 }
 
-/*# sourceMappingURL=main.css.map */
+
+/**
+ * Custom styles
+ * ------------------------------------------------------------------- 
+ */
+
+ .logo-big {	
+	height: 128px;
+	margin-bottom: 6rem;
+	background: url("../images/logo-big.png") no-repeat center;
+}
+
+.justify-text {
+	text-align: justify !important;
+	text-justify: inter-word !important;
+}
+
+.footer-link {
+	color: #6e6e6e !important;
+}
+
+.footer-link:hover{
+	color: #FF0077 !important;
+}
