@@ -114,6 +114,22 @@
 
 	});
 
+	/*---------------------------------------------------- */
+	/*	Typewriter effect
+	------------------------------------------------------ */
+	var app = document.getElementById('helloworld');
+	var consolePrefix = '> ';
+	var text = app.innerText;
+	var typewriter = new Typewriter(app, {
+		loop: false,
+		delay: 'natural',
+		deleteSpeed: 'natural'
+	});
+
+	typewriter.typeString(consolePrefix)
+			  .pauseFor(1000)
+			  .typeString(text)
+			  .start()
 
 	/*----------------------------------------------------*/
 	/*	Modal Popup
