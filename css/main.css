@@ -2639,7 +2639,7 @@ footer .copyright span:last-child::after {
 
 .language-bar {
 	position: absolute;
-	right: 20%;
+	right: 15%;
 	top: 0;
 	z-index: 600;
 	background-color: black;
