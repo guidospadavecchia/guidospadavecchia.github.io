@@ -2687,8 +2687,15 @@ footer .copyright span:last-child::after {
 	border: none !important;
 }
 
+.ajs-content p {
+	margin-bottom: 0 !important;
+}
+
 .alertify-form-control-override {
-	width: 100%;
+	width: 100% !important;
+	height: 4rem !important;
+	padding: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 .alertify-btn-danger-override {
