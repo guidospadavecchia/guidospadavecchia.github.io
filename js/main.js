@@ -262,7 +262,7 @@
 
 	$("#cvDownload").click(function() {
 		let scrollOffset = window.pageYOffset;
-		let title = window.location.href.includes('es.html') ? 'Habilitar Descarga' : 'Unlock Download';
+		let title = window.location.href.includes('es.html') ? 'Desbloquear Descarga' : 'Unlock Download';
 		let message = window.location.href.includes('es.html') ? 'Por favor ingrese el código provisto:' : 'Please enter the provided code:';
 		let errorMessage = window.location.href.includes('es.html') ? 'Código incorrecto' : 'Incorrect passphrase';
 		let successMessage = window.location.href.includes('es.html') ? 'La descarga comenzará pronto' : 'Your download has started';
