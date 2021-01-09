@@ -256,9 +256,9 @@
 	/*----------------------------------------------------- */
 	/* Download CV Button
 	------------------------------------------------------- */
-	const passphrase = 'AimForTheStars'
+	const code = String.fromCharCode(97, 105, 109, 102, 111, 114, 116, 104, 101, 115, 116, 97, 114, 115); // AimFor...
 	const cvDriveIdEn = '1364uy6wi1BTImcbJj18oDYHdWMVRjPTE';
-	const cvDriveIdEs = '1FJej9cUuKVwcJOUZI80j15rp2dVOqaSi'
+	const cvDriveIdEs = '1FJej9cUuKVwcJOUZI80j15rp2dVOqaSi';
 
 	$("#cvDownload").click(function() {
 		let scrollOffset = window.pageYOffset;
@@ -268,7 +268,7 @@
 		let successMessage = window.location.href.includes('es.html') ? 'La descarga comenzará pronto' : 'Your download has started';
 		let onOK = (evt, value) => {
 			alertify.set('notifier','position', 'top-center');
-			if(value.toLowerCase() === passphrase.toLowerCase()) {
+			if(value.toLowerCase() === code.toLowerCase()) {
 				let documentId = window.location.href.includes('es.html') ? cvDriveIdEs : cvDriveIdEn;
 				alertify.notify(successMessage, 'success', 3);
 				window.open(`https://drive.google.com/uc?export=download&id=${documentId}`, '_self');
