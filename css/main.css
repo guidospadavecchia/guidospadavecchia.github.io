@@ -1519,7 +1519,6 @@ header .logo a {
 	position: relative;
 	text-align: left;
 	max-width: 850px;
-	margin-bottom: 3.6rem;
 }
 .about-content h3 {
 	font-family: "poppins-bold", sans-serif;
@@ -2661,4 +2660,41 @@ footer .copyright span:last-child::after {
    -ms-transform: scale(1.1, 1.1);
    -webkit-transform: scale(1.1, 1.1);
    -o-transform: scale(1.1, 1.1);
+}
+
+/* Alertify overrides */
+.ajs-content p {
+	font-family: "poppins-regular", sans-serif !important;
+    font-size: initial !important;
+}
+
+.ajs-header {
+	font-family: "poppins-regular", sans-serif !important;
+    font-size: initial !important;
+}
+
+.ajs-error {
+	font-family: "poppins-regular", sans-serif !important;
+	font-size: initial !important;
+	background: rgb(195 49 49 / 95%) !important;
+	border: none !important;
+}
+
+.ajs-success {
+	font-family: "poppins-regular", sans-serif !important;
+	font-size: initial !important;
+	background: rgb(59 175 86 / 95%) !important;
+	border: none !important;
+}
+
+.alertify-form-control-override {
+	width: 100%;
+}
+
+.alertify-btn-danger-override {
+	background-color: #d46864;
+}
+
+.alertify-btn-danger-override:hover {
+	background-color: #d4312c;
 }

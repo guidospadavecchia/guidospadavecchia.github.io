@@ -234,7 +234,7 @@
 
 	/*----------------------------------------------------- */
 	/* Back to top
-------------------------------------------------------- */
+	------------------------------------------------------- */
 	var pxShow = 300; // height on which the button will show
 	var fadeInTime = 400; // how slow/fast you want the button to show
 	var fadeOutTime = 400; // how slow/fast you want the button to hide
@@ -253,4 +253,49 @@
 		}
 	});
 
+	/*----------------------------------------------------- */
+	/* Download CV Button
+	------------------------------------------------------- */
+	const passphrase = 'AimForTheStars'
+	const cvDriveIdEn = '1364uy6wi1BTImcbJj18oDYHdWMVRjPTE';
+	const cvDriveIdEs = '1FJej9cUuKVwcJOUZI80j15rp2dVOqaSi'
+
+	$("#cvDownload").click(function() {
+		let scrollOffset = window.pageYOffset;
+		let title = window.location.href.includes('es.html') ? 'Habilitar Descarga' : 'Unlock Download';
+		let message = window.location.href.includes('es.html') ? 'Por favor ingrese el código provisto:' : 'Please enter the provided code:';
+		let errorMessage = window.location.href.includes('es.html') ? 'Código incorrecto' : 'Incorrect passphrase';
+		let successMessage = window.location.href.includes('es.html') ? 'La descarga comenzará pronto' : 'Your download has started';
+		let onOK = (evt, value) => {
+			alertify.set('notifier','position', 'top-center');
+			if(value.toLowerCase() === passphrase.toLowerCase()) {
+				let documentId = window.location.href.includes('es.html') ? cvDriveIdEs : cvDriveIdEn;
+				alertify.notify(successMessage, 'success', 3);
+				window.open(`https://drive.google.com/uc?export=download&id=${documentId}`, '_self');
+			}
+			else{
+				alertify.notify(errorMessage, 'error', 3);
+			}
+			window.scrollTo(0, scrollOffset);
+		};
+		let onCancel = () => {
+			alertify.closeAll();
+			window.scrollTo(0, scrollOffset);
+		}
+		
+		alertify.prompt(title, message, '', onOK, onCancel).setting({
+			movable: false,
+			transition: 'zoom',
+			maximizable: false,
+			preventBodyShift: true
+		});
+	});
+
+	/** Alertify defaults */
+	alertify.defaults.transition = "slide";
+	alertify.defaults.theme.ok = "btn btn-primary";
+	alertify.defaults.theme.cancel = "btn btn-danger alertify-btn-danger-override";
+	alertify.defaults.theme.input = "form-control alertify-form-control-override";
+	alertify.defaults.glossary.ok = window.location.href.includes('es.html') ? 'Aceptar' : 'OK';
+	alertify.defaults.glossary.cancel = window.location.href.includes('es.html') ? 'Cancelar' : 'Cancel';
 })(jQuery);
