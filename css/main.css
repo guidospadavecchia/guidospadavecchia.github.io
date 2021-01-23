@@ -1084,7 +1084,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * ------------------------------------------------------------------- 
  */
 header {
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	min-height: 66px;
 	z-index: 600;
@@ -1099,7 +1099,7 @@ header .top-bar {
 	min-width: 190px;
 	min-height: 66px;
 	position: absolute;
-	left: 90px;
+	left: 5%;
 	top: 0;
 }
 header .logo {
@@ -2639,7 +2639,7 @@ footer .copyright span:last-child::after {
 
 .language-bar {
 	position: absolute;
-	right: 15%;
+	right: 5%;
 	top: 0;
 	z-index: 600;
 	background-color: black;
@@ -2693,9 +2693,10 @@ footer .copyright span:last-child::after {
 
 .alertify-form-control-override {
 	width: 100% !important;
-	height: 4rem !important;
-	padding: 0 !important;
+	height: 3rem !important;
+	padding: 3rem 0 1.5rem 0 !important;
 	margin-bottom: 0 !important;
+	line-height: 5rem !important;
 }
 
 .alertify-btn-danger-override {
