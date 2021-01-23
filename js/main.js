@@ -256,7 +256,7 @@
 	/*----------------------------------------------------- */
 	/* Download CV Button
 	------------------------------------------------------- */
-	const code = String.fromCharCode(97, 105, 109, 102, 111, 114, 116, 104, 101, 115, 116, 97, 114, 115); // AimFor...
+	const code = String.fromCharCode(103, 115, 57, 52, 99, 118);
 	const cvDriveIdEn = '1364uy6wi1BTImcbJj18oDYHdWMVRjPTE';
 	const cvDriveIdEs = '1FJej9cUuKVwcJOUZI80j15rp2dVOqaSi';
 
@@ -266,6 +266,7 @@
 		let message = window.location.href.includes('es.html') ? 'Por favor ingrese el código provisto:' : 'Please enter the provided code:';
 		let errorMessage = window.location.href.includes('es.html') ? 'Código incorrecto' : 'Incorrect passphrase';
 		let successMessage = window.location.href.includes('es.html') ? 'La descarga comenzará pronto' : 'Your download has started';
+
 		let onOK = (evt, value) => {
 			alertify.set('notifier','position', 'top-center');
 			if(value.toLowerCase() === code.toLowerCase()) {
@@ -287,7 +288,8 @@
 			movable: false,
 			transition: 'zoom',
 			maximizable: false,
-			preventBodyShift: true
+			preventBodyShift: true,
+			autoReset: false
 		});
 	});
 
