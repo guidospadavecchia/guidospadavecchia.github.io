@@ -256,7 +256,7 @@
 	/*----------------------------------------------------- */
 	/* Download CV Button
 	------------------------------------------------------- */
-	const code = String.fromCharCode(103, 115, 57, 52, 99, 118);
+	const code = String.fromCharCode(103, 115, 57, 52, 99, 118); /* iniciales-AA-CV */
 	const cvDriveIdEn = '1364uy6wi1BTImcbJj18oDYHdWMVRjPTE';
 	const cvDriveIdEs = '1FJej9cUuKVwcJOUZI80j15rp2dVOqaSi';
 
