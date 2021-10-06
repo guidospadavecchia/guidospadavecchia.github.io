@@ -2093,7 +2093,7 @@ header .logo a {
  *
  * ------------------------------------------------------------------- 
  */
-#services {
+#knowledge {
 	background: #313131 url(../images/bg.jpg) no-repeat center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -2103,7 +2103,7 @@ header .logo a {
 	color: white;
 	position: relative;
 }
-#services .overlay {
+#knowledge .overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -2113,17 +2113,17 @@ header .logo a {
 	opacity: .9;
 }
 
-#services .section-intro {
+#knowledge .section-intro {
 	margin-bottom: 1.8rem;
 }
 
-#services .section-intro h1 {
+#knowledge .section-intro h1 {
 	color: white;
 }
-#services .section-intro h5 {
+#knowledge .section-intro h5 {
 	color: #00adff;
 }
-#services .section-intro p {
+#knowledge .section-intro p {
 	color: rgba(255, 255, 255, 0.85);
 }
 .services-content {
