@@ -262,15 +262,17 @@
 
 	$("#cvDownload").click(function() {
 		let scrollOffset = window.pageYOffset;
-		let title = window.location.href.includes('es.html') ? 'Desbloquear Descarga' : 'Unlock Download';
-		let message = window.location.href.includes('es.html') ? 'Por favor ingrese el código provisto:' : 'Please enter the provided code:';
-		let errorMessage = window.location.href.includes('es.html') ? 'Código incorrecto' : 'Incorrect passphrase';
-		let successMessage = window.location.href.includes('es.html') ? 'La descarga comenzará pronto' : 'Your download has started';
+		let language = document.querySelector('meta[name="lang"]').content;
+		let isSpanish = language === 'es';
+		let title = isSpanish ? 'Desbloquear Descarga' : 'Unlock Download';
+		let message = isSpanish ? 'Por favor ingrese el código provisto:' : 'Please enter the provided code:';
+		let errorMessage = isSpanish ? 'Código incorrecto' : 'Incorrect passphrase';
+		let successMessage = isSpanish ? 'La descarga comenzará pronto' : 'Your download has started';
 
 		let onOK = (evt, value) => {
 			alertify.set('notifier','position', 'top-center');
 			if(value.toLowerCase() === code.toLowerCase()) {
-				let documentId = window.location.href.includes('es.html') ? cvDriveIdEs : cvDriveIdEn;
+				let documentId = isSpanish ? cvDriveIdEs : cvDriveIdEn;
 				alertify.notify(successMessage, 'success', 3);
 				window.open(`https://drive.google.com/uc?export=download&id=${documentId}`, '_self');
 			}
@@ -298,6 +300,6 @@
 	alertify.defaults.theme.ok = "btn btn-primary";
 	alertify.defaults.theme.cancel = "btn btn-danger alertify-btn-danger-override";
 	alertify.defaults.theme.input = "form-control alertify-form-control-override";
-	alertify.defaults.glossary.ok = window.location.href.includes('es.html') ? 'Aceptar' : 'OK';
-	alertify.defaults.glossary.cancel = window.location.href.includes('es.html') ? 'Cancelar' : 'Cancel';
+	alertify.defaults.glossary.ok = isSpanish ? 'Aceptar' : 'OK';
+	alertify.defaults.glossary.cancel = isSpanish ? 'Cancelar' : 'Cancel';
 })(jQuery);
