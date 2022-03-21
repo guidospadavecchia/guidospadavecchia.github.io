@@ -2612,6 +2612,28 @@ footer .copyright span:last-child::after {
 	text-justify: inter-word !important;
 }
 
+.timeline-subtitle {
+	margin: 0;
+	margin-bottom: 0.5rem;
+}
+
+.pill {
+	background-color: #d7d7d7;
+  border: none;
+  padding: 0 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 16px 0 16px 16px;
+}
+
+.pill p {
+	margin: 0;
+	font-size: 1.2rem !important;
+	color: #686868 !important;
+}
+
 .footer-link {
 	color: #6e6e6e !important;
 }
