@@ -2614,7 +2614,7 @@ footer .copyright span:last-child::after {
 
 .timeline-subtitle {
 	margin: 0;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem !important;
 }
 
 .pill {
@@ -2625,13 +2625,14 @@ footer .copyright span:last-child::after {
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
-  border-radius: 16px 0 16px 16px;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
 }
 
 .pill p {
-	margin: 0;
+	margin: 0 !important;
 	font-size: 1.2rem !important;
-	color: #686868 !important;
+	color: #9b9b9b !important;
 }
 
 .footer-link {
