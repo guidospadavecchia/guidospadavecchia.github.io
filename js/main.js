@@ -312,19 +312,31 @@ function configureCvButton(isSpanish) {
 function replacePlaceholders(isSpanish) {
 	const now = moment();
 
+	const getPlaceholderValueById = (id) => $(`#${id}`).text().replace('{', '').replace('}', '');
+	const setValueById = (id, value) => $(`#${id}`).text(value);
+
+	/** About - Years old */
+	const setCurrentAge = () => {
+		const id = 'birth-date-placeholder';
+		const birthDate = getPlaceholderValueById(id);
+		const momentBirthDate = moment(birthDate);
+		const age = now.diff(momentBirthDate, 'years', false);
+		setValueById(id, age);
+	}
+
 	/** Skills - Years of experience */
 	const setYearsOfExperience = () => {
-		const element = $('div #experience-years-from');
-		const yearFrom = element.text();
+		const id = 'experience-years-from';
+		const yearFrom = getPlaceholderValueById(id);
 		const momentFrom = moment([yearFrom, 0]);
 		const years = now.diff(momentFrom, 'years');
-		element.text(years);
+		setValueById(id, years);
 	};
 
 	/** Current job - Duration */
 	const setCurrentJobDuration = () => {
-		const element = $('div .pill #current-job-start-date');
-		const startDate = element.text();
+		const id = 'current-job-start-date';
+		const startDate = getPlaceholderValueById(id);
 		const momentStartDate = moment(startDate);
 		const diffDuration = moment.duration(now.diff(momentStartDate));
 		const years = diffDuration.years();
@@ -332,9 +344,10 @@ function replacePlaceholders(isSpanish) {
 		const yearsText = years > 0 ? `${years} ${isSpanish ? 'año' : 'year'}` : `${years} ${isSpanish ? 'años' : 'years'}`;
 		const monthsText = months > 0 ? `${months} ${isSpanish ? 'mes' : 'month'}` : `${years} ${isSpanish ? 'meses' : 'months'}`;
 		const text = `${years > 0 ? `${yearsText} ` : ''}${months > 0 ? `${monthsText}` : ''}`;
-		element.text(text);
+		setValueById(id, text);
 	};
 
+	setCurrentAge();
 	setYearsOfExperience();
 	setCurrentJobDuration();
 }
