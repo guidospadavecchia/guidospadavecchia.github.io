@@ -271,41 +271,54 @@
 	alertify.defaults.glossary.cancel = isSpanish ? 'Cancelar' : 'Cancel';
 })(jQuery);
 
+// function configureCvButton(isSpanish) {
+// 	const code = String.fromCharCode(103, 115, 57, 52, 99, 118); /* iniciales-AA-CV */
+// 	const cvDriveIdEn = '1364uy6wi1BTImcbJj18oDYHdWMVRjPTE';
+// 	const cvDriveIdEs = '1FJej9cUuKVwcJOUZI80j15rp2dVOqaSi';
+
+// 	$("#cvDownload").click(function () {
+// 		let scrollOffset = window.pageYOffset;
+// 		let title = isSpanish ? 'Desbloquear Descarga' : 'Unlock Download';
+// 		let message = isSpanish ? 'Por favor ingrese el código provisto:' : 'Please enter the provided code:';
+// 		let errorMessage = isSpanish ? 'Código incorrecto' : 'Incorrect passphrase';
+// 		let successMessage = isSpanish ? 'La descarga comenzará pronto' : 'Your download has started';
+
+// 		let onOK = (_, value) => {
+// 			alertify.set('notifier', 'position', 'top-center');
+// 			if (value.toLowerCase() === code.toLowerCase()) {
+// 				let documentId = isSpanish ? cvDriveIdEs : cvDriveIdEn;
+// 				alertify.notify(successMessage, 'success', 3);
+// 				window.open(`https://drive.google.com/uc?export=download&id=${documentId}`, '_self');
+// 			}
+// 			else {
+// 				alertify.notify(errorMessage, 'error', 3);
+// 			}
+// 			window.scrollTo(0, scrollOffset);
+// 		};
+// 		let onCancel = () => {
+// 			alertify.closeAll();
+// 			window.scrollTo(0, scrollOffset);
+// 		}
+// 		alertify.prompt(title, message, '', onOK, onCancel).setting({
+// 			movable: false,
+// 			transition: 'zoom',
+// 			maximizable: false,
+// 			preventBodyShift: true,
+// 			autoReset: false
+// 		});
+// 	});
+// }
+
 function configureCvButton(isSpanish) {
-	const code = String.fromCharCode(103, 115, 57, 52, 99, 118); /* iniciales-AA-CV */
 	const cvDriveIdEn = '1364uy6wi1BTImcbJj18oDYHdWMVRjPTE';
 	const cvDriveIdEs = '1FJej9cUuKVwcJOUZI80j15rp2dVOqaSi';
 
 	$("#cvDownload").click(function () {
-		let scrollOffset = window.pageYOffset;
-		let title = isSpanish ? 'Desbloquear Descarga' : 'Unlock Download';
-		let message = isSpanish ? 'Por favor ingrese el código provisto:' : 'Please enter the provided code:';
-		let errorMessage = isSpanish ? 'Código incorrecto' : 'Incorrect passphrase';
 		let successMessage = isSpanish ? 'La descarga comenzará pronto' : 'Your download has started';
-
-		let onOK = (_, value) => {
-			alertify.set('notifier', 'position', 'top-center');
-			if (value.toLowerCase() === code.toLowerCase()) {
-				let documentId = isSpanish ? cvDriveIdEs : cvDriveIdEn;
-				alertify.notify(successMessage, 'success', 3);
-				window.open(`https://drive.google.com/uc?export=download&id=${documentId}`, '_self');
-			}
-			else {
-				alertify.notify(errorMessage, 'error', 3);
-			}
-			window.scrollTo(0, scrollOffset);
-		};
-		let onCancel = () => {
-			alertify.closeAll();
-			window.scrollTo(0, scrollOffset);
-		}
-		alertify.prompt(title, message, '', onOK, onCancel).setting({
-			movable: false,
-			transition: 'zoom',
-			maximizable: false,
-			preventBodyShift: true,
-			autoReset: false
-		});
+		let documentId = isSpanish ? cvDriveIdEs : cvDriveIdEn;
+		alertify.set('notifier', 'position', 'top-center');
+		alertify.notify(successMessage, 'success', 3);
+		window.open(`https://drive.google.com/uc?export=download&id=${documentId}`, '_self');
 	});
 }
 
@@ -341,8 +354,8 @@ function replacePlaceholders(isSpanish) {
 		const diffDuration = moment.duration(now.diff(momentStartDate));
 		const years = diffDuration.years();
 		const months = diffDuration.months();
-		const yearsText = years > 0 ? `${years} ${isSpanish ? 'año' : 'year'}` : `${years} ${isSpanish ? 'años' : 'years'}`;
-		const monthsText = months > 0 ? `${months} ${isSpanish ? 'mes' : 'month'}` : `${years} ${isSpanish ? 'meses' : 'months'}`;
+		const yearsText = years <= 1 ? `${years} ${isSpanish ? 'año' : 'year'}` : `${years} ${isSpanish ? 'años' : 'years'}`;
+		const monthsText = months <= 1 ? `${months} ${isSpanish ? 'mes' : 'month'}` : `${months} ${isSpanish ? 'meses' : 'months'}`;
 		const text = `${years > 0 ? `${yearsText} ` : ''}${months > 0 ? `${monthsText}` : ''}`;
 		setValueById(id, text);
 	};
