@@ -4538,6 +4538,12 @@ li,
 }
 
 @media only screen and (max-width:768px) {
+	html,
+	body {
+		max-width: 100%;
+		overflow-x: hidden;
+	}
+
 	#resume .timeline-wrap::before {
 		left: 3rem;
 	}
@@ -4562,6 +4568,7 @@ li,
 
 	#resume .timeline-content {
 		margin-left: 7rem;
+		max-width: calc(100% - 7rem);
 		padding: 2.2rem;
 		margin-top: 1.4rem;
 	}
@@ -4572,6 +4579,17 @@ li,
 
 	#knowledge .services-content {
 		position: relative;
+		overflow: hidden;
+	}
+
+	.services-list .owl-wrapper-outer {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.services-list .owl-item {
+		padding-left: .8rem;
+		padding-right: .8rem;
 	}
 
 	#knowledge .owl-controls {
@@ -4602,6 +4620,7 @@ li,
 
 	#resume .timeline-content {
 		margin-left: 6rem;
+		max-width: calc(100% - 6rem);
 		padding: 2rem;
 	}
 
