@@ -4632,6 +4632,7 @@ li,
 @media only screen and (max-width:768px) {
 	#intro {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		height: auto;
@@ -4670,10 +4671,20 @@ li,
 	}
 
 	.intro-social {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2.4rem;
 		position: static;
-		width: auto;
+		width: 100%;
 		margin-top: 4.8rem;
+		margin-bottom: 0;
+		padding: 0;
 		font-size: 2.8rem;
+	}
+
+	.intro-social li {
+		margin: 0;
 	}
 }
 
