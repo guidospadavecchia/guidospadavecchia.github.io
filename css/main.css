@@ -4005,12 +4005,59 @@ header .top-bar {
 }
 
 .language-bar {
-	top: 8px;
-	padding: 5px 0 0;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 0;
 }
 
 .language-bar img {
-	margin: 1rem 0;
+	display: none;
+}
+
+.language-bar a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 5.8rem;
+	height: 4rem;
+	padding: 0 1.4rem;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.035);
+	color: var(--color-muted);
+	font-family: "poppins-semibold", sans-serif;
+	font-size: 1.18rem;
+	letter-spacing: .12rem;
+	line-height: 1;
+	text-shadow: none;
+	transition: transform var(--transition-smooth), color var(--transition-smooth), background var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.language-bar a::before {
+	content: "ES";
+}
+
+html[lang="es"] .language-bar a::before {
+	content: "EN";
+}
+
+.language-bar a::after {
+	content: "";
+	width: .55rem;
+	height: .55rem;
+	margin-left: .75rem;
+	border-radius: 999px;
+	background: var(--color-accent);
+	box-shadow: 0 0 12px rgba(61, 139, 255, 0.6);
+}
+
+.language-bar a:hover,
+.language-bar a:focus {
+	background: rgba(61, 139, 255, 0.11);
+	border-color: rgba(61, 139, 255, 0.36);
+	color: var(--color-text);
+	box-shadow: 0 0 24px rgba(61, 139, 255, 0.16);
+	transform: translateY(-1px);
 }
 
 .menu-toggle {
@@ -4487,5 +4534,78 @@ li,
 
 	#resume .timeline-content h4 {
 		font-size: 1.85rem;
+	}
+}
+
+@media only screen and (max-width:768px) {
+	#resume .timeline-wrap::before {
+		left: 3rem;
+	}
+
+	#resume .timeline-ico {
+		left: 3rem;
+		margin-left: -2.4rem;
+	}
+
+	#resume .timeline-header {
+		float: none;
+		width: auto;
+		padding: 0 0 0 7rem;
+		text-align: left;
+	}
+
+	#resume .timeline-header h3 {
+		max-width: none;
+		overflow-wrap: normal;
+		word-break: normal;
+	}
+
+	#resume .timeline-content {
+		margin-left: 7rem;
+		padding: 2.2rem;
+		margin-top: 1.4rem;
+	}
+
+	#resume .timeline-content img {
+		max-width: 120px;
+	}
+
+	#knowledge .services-content {
+		position: relative;
+	}
+
+	#knowledge .owl-controls {
+		position: static;
+	}
+
+	#knowledge .owl-buttons div {
+		display: none;
+	}
+}
+
+@media only screen and (max-width:480px) {
+	#resume .timeline-wrap::before {
+		left: 2.6rem;
+	}
+
+	#resume .timeline-ico {
+		left: 2.6rem;
+		height: 4rem;
+		width: 4rem;
+		line-height: 4rem;
+		margin-left: -2rem;
+	}
+
+	#resume .timeline-header {
+		padding-left: 6rem;
+	}
+
+	#resume .timeline-content {
+		margin-left: 6rem;
+		padding: 2rem;
+	}
+
+	#knowledge .owl-buttons div {
+		display: none;
 	}
 }
