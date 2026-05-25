@@ -45,14 +45,17 @@
 	/* Owl Carousel
 	------------------------------------------------------ */
 	$("#owl-slider").owlCarousel({
-		navigation: false,
+		navigation: true,
 		pagination: true,
 		itemsCustom: [
 			[0, 1],
 			[700, 2],
 			[960, 3]
 		],
-		navigationText: false
+		navigationText: [
+			'<i class="fa fa-angle-left"></i>',
+			'<i class="fa fa-angle-right"></i>'
+		]
 	});
 
 
@@ -121,7 +124,7 @@
 	var consolePrefix = '> ';
 	var text = app.innerText;
 	var typewriter = new Typewriter(app, {
-		loop: false,
+		loop: true,
 		delay: 'natural',
 		deleteSpeed: 'natural'
 	});
@@ -129,6 +132,9 @@
 	typewriter.typeString(consolePrefix)
 		.pauseFor(1000)
 		.typeString(text)
+		.pauseFor(3000)
+		.deleteAll(45)
+		.pauseFor(600)
 		.start()
 
 	/*----------------------------------------------------*/
@@ -261,6 +267,7 @@
 
 	configureCvButton(isSpanish);
 	replacePlaceholders(isSpanish);
+	configureRevealAnimations();
 
 	/** Alertify defaults */
 	alertify.defaults.transition = "slide";
@@ -363,4 +370,42 @@ function replacePlaceholders(isSpanish) {
 	setCurrentAge();
 	setYearsOfExperience();
 	setCurrentJobDuration();
+}
+
+function configureRevealAnimations() {
+	const targets = document.querySelectorAll(
+		'#about .section-intro, #about .intro-info, #about .about-content .col-six, #about .button-section, #resume .section-intro, #resume .resume-header, #resume .timeline-block, #portfolio .section-intro, #portfolio .folio-item, #knowledge .section-intro, #knowledge .service, #contact .section-intro, #contact .contact-info, footer'
+	);
+
+	if (!targets.length) {
+		return;
+	}
+
+	if (!('IntersectionObserver' in window)) {
+		targets.forEach(function (target) {
+			target.classList.add('is-visible');
+		});
+		return;
+	}
+
+	targets.forEach(function (target, index) {
+		target.classList.add('reveal-on-scroll');
+		target.style.transitionDelay = Math.min(index % 6, 5) * 70 + 'ms';
+	});
+
+	const observer = new IntersectionObserver(function (entries) {
+		entries.forEach(function (entry) {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('is-visible');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, {
+		threshold: 0.12,
+		rootMargin: '0px 0px -8% 0px'
+	});
+
+	targets.forEach(function (target) {
+		observer.observe(target);
+	});
 }
